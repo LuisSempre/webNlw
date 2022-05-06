@@ -5,7 +5,7 @@ import Loading from "../../Loading";
 
 interface ScreenShotProps {
     screenShot: string | null;
-    onScreenShot: (screenShot: string) => void;
+    onScreenShot: (screenShot: string | null) => void;
 }
 
 export default function ScreenShot({ screenShot, onScreenShot }: ScreenShotProps) {
@@ -23,6 +23,12 @@ export default function ScreenShot({ screenShot, onScreenShot }: ScreenShotProps
         <button
             type="button"
             className="flex items-end justify-end w-10 h-10 p-1 text-gray-400 transition-colors border-transparent rounded-md hover:text-gray-100"
+            onClick={() => onScreenShot(null)}
+            style={{
+                backgroundImage: `url(${screenShot})`,
+                backgroundPosition: 'right bottom',
+                backgroundSize: 180,
+            }}
         >
             <Trash />
         </button>
